@@ -1,0 +1,17 @@
+# ---- secrets: never upload ----
+backend/client_secret.json
+backend/youtube_token.json
+.env
+
+# ---- big / machine-specific (rebuilt automatically on each computer) ----
+backend/venv/
+backend/bin/
+data/
+__pycache__/
+*.pyc
+
+# ---- backups & junk ----
+*.bak
+.DS_Store
+Claude outputs/
+caption_preview.png

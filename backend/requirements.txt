@@ -1,0 +1,13 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+opencv-python-headless>=4.9,<5
+numpy
+anthropic>=0.40
+openai>=1.40
+faster-whisper>=1.0
+yt-dlp
+pillow
+google-api-python-client
+google-auth-oauthlib
+mlx-whisper; sys_platform == "darwin" and platform_machine == "arm64"

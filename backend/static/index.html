@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><script>try{document.documentElement.dataset.theme=localStorage.getItem("cf_theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClipForge AI — Free AI YouTube Shorts Maker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23e1306c%22/%3E%3Cpath d=%22M9 7l8 5-8 5z%22 fill=%22white%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-scene" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="grid-overlay"></div></div>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="/"><span class="logo-mark">▶</span>ClipForge<span class="grad">AI</span></a>
+    <nav class="links"><a href="#how">How it works</a><a href="#features">Features</a><a href="#faq">FAQ</a></nav>
+    <div class="nav-right"><button class="theme-btn" id="themeBtn" title="Switch light / dark theme" aria-label="Switch theme">☀️</button>
+    <div id="ytNav"><button class="btn btn-yt sm" id="ytConnect"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg>Connect YouTube</button></div></div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="glow"></div>
+    <div class="wrap center">
+      <div class="crumbs">Home › Tools › <b>YouTube Shorts Maker</b></div>
+      <h1>Free AI <span class="grad">YouTube Shorts</span> Maker</h1>
+      <p class="sub">Paste a long video link. AI finds the most viral moments, reframes them to 9:16, adds captions and gives you ready-to-post Shorts, Reels and TikToks — live, in real time.</p>
+
+      <!-- ONE input: link OR file, never both -->
+      <div class="box" id="box">
+        <div class="inrow" id="urlRow">
+          <svg class="ico" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="url" type="url" placeholder="Paste a YouTube, Vimeo or MP4 link…" autocomplete="off">
+          <button class="clear" id="clearUrl" title="Clear" hidden>✕</button>
+        </div>
+        <div class="inrow file" id="fileRow" hidden>
+          <span class="fileico">🎬</span><div class="fmeta"><b id="fname"></b><small id="fsize"></small></div>
+          <button class="clear" id="clearFile" title="Remove file">✕</button>
+        </div>
+        <button class="btn btn-grad" id="go" disabled>✦ Get clips</button>
+      </div>
+      <div class="or" id="orRow">or <label class="up">upload a file<input id="file" type="file" accept="video/mp4,video/quicktime,video/x-msvideo,video/x-matroska,video/webm,.mkv" hidden></label> · MP4, MOV, MKV, WEBM</div>
+      <div class="err" id="err" hidden></div>
+
+      <div class="opts">
+        <div class="opt"><span>Ratio</span><div class="seg" data-k="fmt"><button data-v="9:16" class="on">9:16</button><button data-v="1:1">1:1</button><button data-v="16:9">16:9</button></div></div>
+        <div class="opt"><span>Clip length</span><div class="seg" data-k="length"><button data-v="auto" class="on">Auto</button><button data-v="short">&lt;30s</button><button data-v="medium">30–60s</button><button data-v="long">60–90s</button></div></div>
+        <div class="opt"><span>Clips</span><div class="seg" data-k="count"><button data-v="3">3</button><button data-v="5" class="on">5</button><button data-v="8">8</button></div></div>
+        <div class="opt"><span>Captions</span><div class="seg" data-k="captions"><button data-v="true" class="on">On</button><button data-v="false">Off</button></div></div>
+        <div class="opt cap-opt"><span>Caption colour</span><div class="seg swatches" data-k="capcolor"><button data-v="#FFFFFF" title="White" class="sw on" style="--c:#FFFFFF"></button><button data-v="#FFE500" title="Yellow" class="sw" style="--c:#FFE500"></button><button data-v="#111111" title="Black" class="sw" style="--c:#111111"></button><button data-v="#22D3EE" title="Cyan" class="sw" style="--c:#22D3EE"></button><button data-v="#FF4FA3" title="Pink" class="sw" style="--c:#FF4FA3"></button><label class="sw custom" title="Custom colour"><input type="color" data-k="capcolor" value="#FFFFFF"></label></div></div>
+        <div class="opt cap-opt"><span>Highlight word</span><div class="seg swatches" data-k="hicolor"><button data-v="#FFE500" title="Yellow" class="sw on" style="--c:#FFE500"></button><button data-v="#39FF14" title="Green" class="sw" style="--c:#39FF14"></button><button data-v="#22D3EE" title="Cyan" class="sw" style="--c:#22D3EE"></button><button data-v="#FF3B30" title="Red" class="sw" style="--c:#FF3B30"></button><button data-v="#FF4FA3" title="Pink" class="sw" style="--c:#FF4FA3"></button><button data-v="#FF8A00" title="Orange" class="sw" style="--c:#FF8A00"></button><label class="sw custom" title="Custom colour"><input type="color" data-k="hicolor" value="#FFE500"></label></div></div>
+        <div class="opt cap-opt"><span>Caption size</span><div class="seg" data-k="capsize"><button data-v="s">S</button><button data-v="m" class="on">M</button><button data-v="l">L</button><button data-v="xl">XL</button></div></div>
+        <div class="opt cap-opt"><div class="cap-preview" id="capPreview"><span>YOUR</span> <span class="hi">FIRST</span> <span>THING</span></div></div>
+        <div class="opt yt-opt"><span>Auto-post to YouTube</span><div class="seg" data-k="autopost"><button data-v="false" class="on">Off</button><button data-v="true">On</button></div></div>
+        <div class="opt yt-opt"><span>Visibility</span><div class="seg" data-k="privacy"><button data-v="private" class="on">Private</button><button data-v="unlisted">Unlisted</button><button data-v="public">Public</button></div></div>
+      </div>
+      <div class="badges"><span>⚡ Real-time processing</span><span>🔥 AI virality score</span><span>📐 Auto reframe</span><span>💬 Burned-in captions</span><span>🚫 No watermark</span></div>
+    </div>
+  </section>
+
+  <!-- LIVE WORKSPACE -->
+  <section class="wrap work" id="work" hidden>
+    <div class="job card">
+      <div class="src"><div class="thumb" id="thumb"></div>
+        <div class="srcinfo"><div class="live"><i></i><span id="liveTxt">LIVE</span></div><h3 id="srcTitle">Preparing…</h3><small id="srcMeta"></small></div>
+        <button class="btn btn-ghost sm" id="newBtn">+ New video</button></div>
+      <div class="bar"><div id="barFill"></div></div>
+      <div class="barmeta"><b id="pct">0%</b><span id="detail">Starting…</span><span id="elapsed">0:00</span></div>
+      <ol class="steps" id="steps"></ol>
+    </div>
+    <div class="reshead" id="resHead" hidden><h2>Your clips <small id="clipCount"></small></h2><div class="savebar"><select id="qAll" class="qsel" title="Download quality"><option value="1080">Full HD 1080p</option><option value="720">HD 720p</option><option value="480">SD 480p</option></select><button class="btn btn-dark sm" id="zip">⬇ Save all</button><button class="btn btn-ghost sm" id="openDir" title="Open Desktop/Short YouTube">📁 Open folder</button></div></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="wrap sec" id="how">
+    <h2 class="h2">How to make a YouTube Short with AI</h2>
+    <div class="three">
+      <div class="step card"><em>1</em><h3>Paste a link or upload</h3><p>Drop any public YouTube, Vimeo or direct video link — or upload a file from your computer. Just one, no extra steps.</p></div>
+      <div class="step card"><em>2</em><h3>AI finds the best moments</h3><p>We transcribe the speech, score every moment for hook, energy and pacing, and pick complete, self-contained clips.</p></div>
+      <div class="step card"><em>3</em><h3>Watch live & export</h3><p>Each clip appears the moment it's rendered — reframed, captioned and ready to download in 1080p.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="features">
+    <h2 class="h2">Everything you need to go viral</h2>
+    <div class="feats">
+      <div class="feat"><b>🔥</b><h4>Virality score</h4><p>Every clip ranked 0–100 on hook strength, emotional energy, speech density and pacing.</p></div>
+      <div class="feat"><b>📐</b><h4>AI reframe</h4><p>Face tracking keeps the speaker centred when converting to 9:16, 1:1 or 16:9.</p></div>
+      <div class="feat"><b>💬</b><h4>Auto captions</h4><p>Bold burned-in subtitles plus SRT and VTT files for every clip.</p></div>
+      <div class="feat"><b>⚡</b><h4>Real-time progress</h4><p>See download speed, transcription and rendering live — clips stream in as they finish.</p></div>
+      <div class="feat"><b>✍️</b><h4>Titles & hashtags</h4><p>Ready-to-post title, description and hashtags generated from what was actually said.</p></div>
+      <div class="feat"><b>🚫</b><h4>No watermark</h4><p>Clean Full HD 1080p exports, saved to Desktop › Short YouTube — one clip or all at once, never duplicated.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="faq">
+    <h2 class="h2">Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>Is ClipForge AI free?</summary><p>Yes. It runs on your own machine — no sign-up, no watermark, no limits beyond your computer's speed.</p></details>
+      <details><summary>Which links work?</summary><p>Public YouTube, Vimeo and most video sites supported by yt-dlp, plus direct MP4 links. Private, members-only or DRM-protected videos can't be imported.</p></details>
+      <details><summary>How long does it take?</summary><p>Usually 2–5 minutes: the download, then fast speech recognition on your Mac's GPU (a 20-minute video transcribes in about 2 minutes), then clips render two at a time.</p></details>
+      <details><summary>How many clips will I get?</summary><p>Choose 3, 5 or 8. Clips never overlap and always end on a complete sentence.</p></details>
+      <details><summary>Can I use any video?</summary><p>Only process videos you own or have permission to use.</p></details>
+    </div>
+  </section>
+
+  <section class="wrap cta card">
+    <h2>Turn one long video into a week of Shorts</h2><p>Paste a link above and watch your clips appear in real time.</p>
+    <a class="btn btn-grad" href="#top">✦ Make Shorts now</a>
+  </section>
+</main>
+<footer class="wrap foot"><span class="logo"><span class="logo-mark">▶</span>ClipForge<span class="grad">AI</span></span><small>Turn long videos into engaging social clips automatically.</small></footer>
+
+<template id="clipTpl">
+  <article class="clip card">
+    <div class="vid"><div class="ph"><div class="spin"></div><span class="phTxt">Queued</span><div class="minibar"><i></i></div></div><span class="score"></span><span class="dur"></span></div>
+    <div class="cbody"><h4 class="ctitle" spellcheck="false"></h4><p class="hook"></p><div class="tags"></div><small class="range"></small>
+      <details class="edit"><summary>✎ Edit title, description & hashtags</summary>
+        <label>Title<input class="e-title" maxlength="95"></label>
+        <label>Description<textarea class="e-desc" rows="5"></textarea></label>
+        <label>Hashtags<input class="e-tags" placeholder="#shorts #viral"></label>
+        <button class="btn btn-ghost sm e-save">Save changes</button></details>
+      <div class="acts"><select class="qsel q" title="Download quality"><option value="1080">Full HD 1080p</option><option value="720">HD 720p</option><option value="480">SD 480p</option></select><button class="btn btn-dark sm dl">⬇ Save MP4</button><a class="btn btn-ghost sm srt">SRT</a><a class="btn btn-ghost sm th" target="_blank">Thumbnail</a><button class="btn btn-ghost sm copy">Copy caption</button></div>
+      <div class="ytbox"><button class="btn btn-yt sm pub">▶ Post to YouTube</button><span class="ytst"></span></div></div>
+  </article>
+</template>
+<div class="modal" id="setup" hidden><div class="mcard card">
+  <button class="clear mclose" id="setupClose">✕</button>
+  <h3>Connect your YouTube channel — one-time setup</h3>
+  <p class="mut">YouTube requires your own free Google API key so uploads go to <b>your</b> channel. Takes about 15 minutes, once.</p>
+  <ol>
+    <li>Open <a href="https://console.cloud.google.com/projectcreate" target="_blank">console.cloud.google.com</a> → create a project named <b>ClipForge</b>.</li>
+    <li>Go to <b>APIs &amp; Services → Library</b>, search <b>YouTube Data API v3</b> → <b>Enable</b>.</li>
+    <li><b>OAuth consent screen</b> (Google Auth Platform): User type <b>External</b>, app name ClipForge, your email. Under <b>Audience → Test users</b> add the Google account that owns your channel.</li>
+    <li><b>Credentials → Create credentials → OAuth client ID</b> → type <b>Web application</b>.<br>Authorised redirect URI: <code>http://localhost:8000/api/youtube/callback</code></li>
+    <li><b>Download JSON</b>, rename it to <code>client_secret.json</code> and put it in <code>clipforge-ai/backend/</code>.</li>
+    <li>Restart the server, then click <b>Connect YouTube</b> and sign in with your channel's account.</li>
+  </ol>
+  <p class="mut small">Note: until Google verifies your app, YouTube keeps API uploads private — make them public in YouTube Studio.</p>
+</div></div>
+<script src="app.js"></script>
+</body>
+</html>

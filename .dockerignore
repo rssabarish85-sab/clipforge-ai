@@ -1,0 +1,10 @@
+backend/venv
+backend/__pycache__
+backend/*.bak
+backend/client_secret.json
+backend/youtube_token.json
+data
+Claude outputs
+*.zip
+.env
+.DS_Store
